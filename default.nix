@@ -61,6 +61,13 @@ let
             { uses = "actions/checkout@v4"; }
             { uses = "samueldr/lix-gha-installer-action@v2025-01-24.prerelease"; }
             { run = "nix-build -A dockerFile"; }
+            {
+              uses = "actions/upload-artifact@v4";
+              "with" = {
+                path = "result";
+                compression-level = 0;
+              };
+            }
           ];
         };
       };
