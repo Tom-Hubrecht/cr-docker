@@ -1,0 +1,51 @@
+{
+  "pins": {
+    "git-hooks": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "cachix",
+        "repo": "git-hooks.nix"
+      },
+      "branch": "master",
+      "revision": "9364dc02281ce2d37a1f55b6e51f7c0f65a75f17",
+      "url": "https://github.com/cachix/git-hooks.nix/archive/9364dc02281ce2d37a1f55b6e51f7c0f65a75f17.tar.gz",
+      "hash": "1n2qlj5l8c4g7gm5v6rvc4hff3ka8ljv7y62inybli093bd2ypa7"
+    },
+    "nix-actions": {
+      "type": "GitRelease",
+      "repository": {
+        "type": "Git",
+        "url": "https://git.dgnum.eu/DGNum/nix-actions"
+      },
+      "pre_releases": false,
+      "version_upper_bound": null,
+      "release_prefix": null,
+      "version": "v0.5.0",
+      "revision": "24c8d9c10683548d481fcd3be5c987fc13254744",
+      "url": null,
+      "hash": "1vv5vnhs9yixh6lav8337a2xhki9wgk4d693gdasvf116rq4jarl"
+    },
+    "nix-reuse": {
+      "type": "GitRelease",
+      "repository": {
+        "type": "Git",
+        "url": "https://git.dgnum.eu/DGNum/nix-reuse"
+      },
+      "pre_releases": false,
+      "version_upper_bound": null,
+      "release_prefix": null,
+      "version": "v0.1.3",
+      "revision": "45633dc6a0512cbbb010bc615b5d1b6e46e57597",
+      "url": null,
+      "hash": "052w74pks5gf5n3rnvjgxawhvlaqm3iw5sjys19f99yby01bggn6"
+    },
+    "nixpkgs": {
+      "type": "Channel",
+      "name": "nixpkgs-unstable",
+      "url": "https://releases.nixos.org/nixpkgs/nixpkgs-25.05pre755116.f0295845e58a/nixexprs.tar.xz",
+      "hash": "01r8ylzam9kscp79ay8c8r7yswgb1q0h88dfvfjhqawxaf1xbwk0"
+    }
+  },
+  "version": 3
+}
