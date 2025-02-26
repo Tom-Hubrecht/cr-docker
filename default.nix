@@ -14,6 +14,9 @@ let
 
   tools = genAttrs [ "gappa" ] (pname: pkgs.callPackage ./tools/${pname}.nix { });
 
+  nix-reuse = import sources.nix-reuse { inherit pkgs; };
+  nix-actions = import sources.nix-actions { inherit pkgs; };
+
   callFunctionWith =
     autoArgs: fn:
     let
@@ -22,6 +25,46 @@ let
     f (builtins.intersectAttrs (builtins.functionArgs f) autoArgs);
 
   call = callFunctionWith (pkgs // tools);
+
+  reuse = nix-reuse.install {
+    defaultLicense = "MIT";
+    defaultCopyright = "Tom Hubrecht <tom.hubrecht@ens-lyon.fr>";
+
+    installPath = builtins.toString ./.;
+
+    # downloadLicenses = true;
+    generatedPaths = [
+      ".envrc"
+      ".gitignore"
+      "shell.nix"
+    ];
+
+    annotations = [
+      { path = ".github/workflows/*"; }
+    ];
+  };
+
+  workflows = nix-actions.install {
+    src = ./.;
+    buildCheck = false;
+
+    platform = "github";
+
+    workflows = {
+      build-docker = {
+        name = "Build the docker image";
+        on.push.brnaches = [ "main" ];
+
+        jobs.build = {
+          runs-on = "ubuntu-latest";
+          steps = [
+            { uses = "actions/checkout@v4"; }
+            { uses = "samueldr/lix-gha-installer-action@v2025-01-24.prerelease"; }
+          ];
+        };
+      };
+    };
+  };
 in
 
 {
@@ -32,6 +75,11 @@ in
 
     packages = [
       pkgs.podman
+    ];
+
+    shellHook = builtins.concatStringsSep "\n" [
+      reuse.shellHook
+      workflows.shellHook
     ];
   };
 }
