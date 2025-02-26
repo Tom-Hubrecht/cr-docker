@@ -60,6 +60,7 @@ let
           steps = [
             { uses = "actions/checkout@v4"; }
             { uses = "samueldr/lix-gha-installer-action@v2025-01-24.prerelease"; }
+            { run = "nix-build -A dockerFile"; }
           ];
         };
       };
