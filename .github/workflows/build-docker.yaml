@@ -6,11 +6,12 @@ jobs:
     steps:
     - uses: actions/checkout@v4
     - uses: samueldr/lix-gha-installer-action@v2025-01-24.prerelease
-    - run: nix-build -A dockerFile
+    - run: cp $(nix-build --no-out-link -A dockerFile) .
     - uses: actions/upload-artifact@v4
       with:
         compression-level: 0
-        path: result
+        name: Compressed Docker Archive
+        path: '*.tar.gz'
 name: Build the docker image
 on:
   push:
