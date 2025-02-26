@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2024 Tom Hubrecht <tom.hubrecht@dgnum.eu>
+#
+# SPDX-License-Identifier: EUPL-1.2
+
 {
   lib,
   stdenv,
