@@ -19,14 +19,14 @@
 
 stdenv.mkDerivation (finalAttrs: {
   pname = "gappa";
-  version = "1.5.0";
+  version = "1.6.0";
 
   src = fetchFromGitLab {
     domain = "gitlab.inria.fr";
     owner = "gappa";
     repo = "gappa";
     rev = "gappa-${finalAttrs.version}";
-    hash = "sha256-oL1jnHZ5/h+E/zByyapIvRvqInbrDEIrbok1OduBNPc=";
+    hash = "sha256-vwXEDSoclnVflC5cBZXNUjw8cFsWaDBA1e3F9AHHqwc=";
   };
 
   nativeBuildInputs = [
