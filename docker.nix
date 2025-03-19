@@ -4,6 +4,7 @@
   # Packages included in the closure
   bash,
   gappa,
+  rlwrap,
   sollya,
 }:
 
@@ -13,6 +14,7 @@ dockerTools.buildLayeredImage {
   contents = [
     bash
     gappa
+    rlwrap
     sollya
   ];
 
