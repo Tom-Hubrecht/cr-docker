@@ -2,7 +2,8 @@
   dockerTools,
 
   # Packages included in the closure
-  bash,
+  bashInteractive,
+  coreutils,
   gappa,
   rlwrap,
   sollya,
@@ -12,7 +13,8 @@ dockerTools.buildLayeredImage {
   name = "cr-workspace";
 
   contents = [
-    bash
+    bashInteractive
+    coreutils
     gappa
     rlwrap
     sollya
@@ -20,5 +22,12 @@ dockerTools.buildLayeredImage {
 
   config = {
     Cmd = [ "bash" ];
+    Env = [
+      "HOME=/data"
+    ];
+    Volumes = {
+      "/data" = { };
+    };
+    WorkingDir = "/data";
   };
 }
