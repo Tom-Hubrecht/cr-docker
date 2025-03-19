@@ -26,7 +26,7 @@ Running `nix-build -A dockerFile` will produce the requested docker archive.
 
 Using podman:
 
-```
+```bash
 podman load --input archive.tar.gz
 ```
 
@@ -34,7 +34,6 @@ podman load --input archive.tar.gz
 
 Using podman:
 
-```
+```bash
 podman run -it localhost/cr-workspace:...
 ```
-
